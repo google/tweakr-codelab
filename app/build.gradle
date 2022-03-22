@@ -46,4 +46,10 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.2.1')
     implementation 'com.google.firebase:firebase-database:20.0.4'
     implementation 'com.google.firebase:firebase-auth:21.0.2'
+
+    // Required for local SharedPreferences or Firebase
+    implementation 'com.github.google.tweakr:core:2.2.3'
+
+    // Optional: Include this if you want Firebase support.
+    implementation 'com.github.google.tweakr:firebase:2.2.3'
 }
