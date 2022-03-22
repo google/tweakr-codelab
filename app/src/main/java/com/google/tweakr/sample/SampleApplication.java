@@ -15,9 +15,9 @@
 package com.google.tweakr.sample;
 
 import android.app.Application;
-
-import com.google.tweakr.Tweakr;
-import com.google.tweakr.preferences.TweakrPreferencesRepo;
+//
+// import com.google.tweakr.Tweakr;
+// import com.google.tweakr.preferences.TweakrPreferencesRepo;
 
 public class SampleApplication extends Application {
 
@@ -26,7 +26,7 @@ public class SampleApplication extends Application {
         super.onCreate();
 
         // Enable local Android preference screen for Tweakr.
-        Tweakr.setRepo(new TweakrPreferencesRepo(this));
+        // Tweakr.setRepo(new TweakrPreferencesRepo(this));
 
         // FIREBASE SUPPORT: Uncomment one of the below, and comment out the above line.
 
