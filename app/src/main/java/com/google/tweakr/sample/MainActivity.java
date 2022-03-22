@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
 
         // Make sure to register AFTER you have set all your View fields!
         Tweakr.register(this);
+        introText.setOnClickListener(v -> animateText());
     }
 
     @Tweak
