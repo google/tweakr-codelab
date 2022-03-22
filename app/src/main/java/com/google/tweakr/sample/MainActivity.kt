@@ -18,6 +18,8 @@ import com.yourdomain.tweakr.sample.R
 import android.app.Activity
 import android.widget.TextView
 import android.view.animation.AccelerateDecelerateInterpolator
+import com.google.tweakr.Tweakr
+import com.google.tweakr.annotations.Tweak
 
 class MainActivity : Activity() {
   lateinit var introText: TextView
@@ -28,8 +30,11 @@ class MainActivity : Activity() {
 
     introText = findViewById(R.id.text)
     introText.setOnClickListener { animateText() }
+
+    Tweakr.register(this)
   }
 
+  @Tweak
   fun animateText() {
     introText.animate()
       .setDuration(700)
