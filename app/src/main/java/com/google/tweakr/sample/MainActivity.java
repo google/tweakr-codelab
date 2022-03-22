@@ -21,9 +21,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.TextView;
+import com.yourdomain.tweakr.sample.R;
 
-import com.google.tweakr.Tweakr;
-import com.google.tweakr.annotations.Tweak;
 
 public class MainActivity extends Activity {
 
