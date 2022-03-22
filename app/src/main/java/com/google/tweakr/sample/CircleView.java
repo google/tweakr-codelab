@@ -21,30 +21,19 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.google.tweakr.Tweakr;
-import com.google.tweakr.TweakrRepo;
-import com.google.tweakr.annotations.Tweak;
-import com.google.tweakr.types.ColorValueType;
+public class CircleView extends View {
 
-public class CircleView extends View implements TweakrRepo.OnChangeListener {
-
-    @Tweak
     public float centerX = 180;
 
-    @Tweak
     public float centerY = 180;
 
-    @Tweak
     public float radius = 50;
 
-    @Tweak
     public Paint.Style style = Paint.Style.FILL;
 
-    @Tweak(valueType = ColorValueType.class)
     public int color = Color.GREEN;
 
     private final Paint paint = new Paint();
-
 
     public CircleView(Context context) {
         super(context);
@@ -67,22 +56,7 @@ public class CircleView extends View implements TweakrRepo.OnChangeListener {
     }
 
     private void init() {
-        Tweakr.register(this);
-    }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-
-        // Register onFieldChanged() to redraw when any value changes.
-        Tweakr.addListener(this);
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        Tweakr.removeListener(this);
-
-        super.onDetachedFromWindow();
     }
 
     @Override
@@ -93,13 +67,5 @@ public class CircleView extends View implements TweakrRepo.OnChangeListener {
         paint.setColor(color);
 
         canvas.drawCircle(centerX, centerY, radius, paint);
-    }
-
-    @Override
-    public void onFieldChanged(String name, Object value) {
-        // This is called whenever a field's value is changed in Tweakr's UI. We could be granular
-        // here and check the name to match only the fields we care about, but for this demo it's
-        // simple enough to just redraw whenever any value changes.
-        invalidate();
     }
 }

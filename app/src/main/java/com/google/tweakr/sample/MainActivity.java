@@ -14,11 +14,8 @@
 
 package com.google.tweakr.sample;
 
-//import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.TextView;
 import com.yourdomain.tweakr.sample.R;
@@ -26,7 +23,6 @@ import com.yourdomain.tweakr.sample.R;
 
 public class MainActivity extends Activity {
 
-    @Tweak(child ="setText(CharSequence)")
     public TextView introText;
 
     @Override
@@ -36,27 +32,14 @@ public class MainActivity extends Activity {
 
         introText = findViewById(R.id.text);
 
-        // Make sure to register AFTER you have set all your View fields!
-        Tweakr.register(this);
         introText.setOnClickListener(v -> animateText());
     }
 
-    @Tweak
     public void animateText() {
         introText.animate()
                 .setDuration(700)
                 .setInterpolator(new AccelerateDecelerateInterpolator())
                 .rotationXBy(360)
                 .start();
-    }
-
-    @Tweak
-    public void setTextShown(boolean showText) {
-        introText.setVisibility(showText? View.VISIBLE : View.INVISIBLE);
-    }
-
-    // Tweakr will check this getter when inspecting the initial value of the setTextShown() setter.
-    public boolean isTextShown() {
-        return introText.getVisibility() == View.VISIBLE;
     }
 }
