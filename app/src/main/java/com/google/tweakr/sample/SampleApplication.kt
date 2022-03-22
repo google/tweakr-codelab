@@ -15,8 +15,8 @@ package com.google.tweakr.sample
 
 import android.app.Application
 
-// import com.google.tweakr.Tweakr;
-// import com.google.tweakr.preferences.TweakrPreferencesRepo;
+import com.google.tweakr.Tweakr;
+import com.google.tweakr.TweakrFirebaseRepo
 
 class SampleApplication : Application() {
   override fun onCreate() {
@@ -28,7 +28,7 @@ class SampleApplication : Application() {
     // FIREBASE SUPPORT: Uncomment one of the below, and comment out the above line.
 
     // Uncomment this to enable the default no-auth Firebase Repo.
-    // Tweakr.setRepo(TweakrFirebaseRepo())
+    Tweakr.setRepo(TweakrFirebaseRepo())
 
     // Uncomment this to enable email authentication (default is anonymous/no authentication).
     // Tweakr.setRepo(TweakrFirebaseRepoEmailAuth())
