@@ -11,16 +11,17 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+package com.google.tweakr.sample.preferences
 
-package com.google.tweakr.sample.preferences;
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.yourdomain.tweakr.sample.R
+import com.google.tweakr.sample.preferences.TweakrPreferencesActivity.SettingsFragment
+import androidx.preference.PreferenceFragmentCompat
+import android.app.Activity
+import android.widget.TextView
+import android.view.animation.AccelerateDecelerateInterpolator
 
-import android.os.Bundle;
-
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceFragmentCompat;
-import com.yourdomain.tweakr.sample.R;
 // import androidx.preference.Preference;
 // import androidx.preference.PreferenceCategory;
 // import androidx.preference.PreferenceFragmentCompat;
@@ -29,30 +30,22 @@ import com.yourdomain.tweakr.sample.R;
 // import androidx.preference.PreferenceScreen;
 // import com.google.tweakr.preferences.TweakrPreferencesRepo;
 // import com.google.tweakr.sample.R;
+class TweakrPreferencesActivity : AppCompatActivity() {
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.settings_activity)
+    supportFragmentManager
+      .beginTransaction()
+      .replace(R.id.settings, SettingsFragment())
+      .commit()
+    val actionBar = supportActionBar
+    actionBar?.setDisplayHomeAsUpEnabled(true)
+  }
 
-public class TweakrPreferencesActivity extends AppCompatActivity {
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.settings_activity);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.settings, new SettingsFragment())
-                .commit();
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-    }
-
-    public static class SettingsFragment extends PreferenceFragmentCompat {
-//         private TweakrPreferencesRepo repo;
-//
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+  class SettingsFragment : PreferenceFragmentCompat() {
+    //         private TweakrPreferencesRepo repo;
+    //
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
 //             repo = new TweakrPreferencesRepo(getContext());
 //
 //             // Uncomment if you want to load static preferences here and add the new ones from Tweakr at the bottom.
@@ -68,6 +61,6 @@ public class TweakrPreferencesActivity extends AppCompatActivity {
 //             repo.populatePreferences(group);
 //
 //             setPreferenceScreen(screen);
-        }
     }
+  }
 }
