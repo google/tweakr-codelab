@@ -42,4 +42,9 @@ class MainActivity : Activity() {
       .rotationXBy(360f)
       .start()
   }
+
+  @Tweak
+  fun setMessage(text: String) {
+    introText.text = text
+  }
 }
