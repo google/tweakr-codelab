@@ -19,19 +19,6 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity
-        android:name="com.google.tweakr.sample.preferences.TweakrPreferencesActivity"
-        android:label="@string/title_activity_tweakr_preferences"
-        android:exported="true"
-        android:launchMode="singleInstance">
-
-
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
   </application>
 
 </manifest>
